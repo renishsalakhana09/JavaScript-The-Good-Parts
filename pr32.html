@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-32</title>
+</head>
+
+<body>
+    <h3>Problem 32: Make a function fibonaccif that returns a generator that will return the next fibonacci number.</h3>
+    <script>
+        function fibonaccif(first, second) {
+            var i = 0;
+            return function() {
+                var third;
+                switch (i) {
+                    case 0:
+                        i = 1;
+                        return first;
+                    case 1:
+                        i = 2;
+                        return second;
+                    default:
+                        third = first + second;
+                        first = second;
+                        second = third;
+                        return third;
+                }
+            };
+        };
+        var fibonaccik = fibonaccif(1, 4);
+        document.write(fibonaccik());
+    </script>
+</body>
+
+</html>

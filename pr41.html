@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-41</title>
+</head>
+
+<body>
+    <h3>Problem 41: Write a function arrayg that will build an array from many invocations.</h3>
+    <script>
+        function arrayg(first) {
+            var arr = [];
+
+            function more(second) {
+                if (second !== undefined) {
+                    arr.push(second);
+                    return more;
+                }
+                return arr;
+            }
+            return more(first);
+        };
+        document.write(arrayg()); // []
+        document.write(arrayg(3)()); // [3]
+        document.write(arrayg(3)(4)(5)()); // [3, 4, 5]
+    </script>
+</body>
+
+</html>

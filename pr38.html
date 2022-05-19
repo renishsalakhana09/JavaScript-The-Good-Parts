@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-38</title>
+</head>
+
+<body>
+    <h3>Problem 38: Write a function exp that evaluates simple array expressions.
+
+    </h3>
+    <script>
+        function exp(arr) {
+            return (Array.isArray(arr)) ?
+                value[0](
+                    exp(value[1]),
+                    exp(value[2])
+                ) :
+                arr;
+        }
+
+        var nae = [
+            Math.sqrt, [
+                add, [square, 3],
+                [square, 4]
+            ]
+        ];
+        document.write(exp(nae)); // 5
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-28</title>
+</head>
+
+<body>
+    <h3>Problem 28: Write a map function that takes an array and a unary function, and returns an array containing the result of passing each element to the unary function. Use the repeat function.</h3>
+    <script>
+        function map(arr, unary) {
+            var index = 0;
+            while (index < arr.length) {
+                arr[index] = unary(arr[index]);
+                index += 1;
+            }
+            return arr;
+        };
+        document.write(map([2, 1, 0], inc));
+    </script>
+</body>
+
+</html>

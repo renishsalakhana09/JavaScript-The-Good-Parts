@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-39</title>
+</head>
+
+<body>
+    <h3>Problem 39: Write a function addg that adds from many invocations, until it sees an empty invocation</h3>
+    <script>
+        function addg(first) {
+            if (first === undefined)
+                return;
+            return function(second) {
+                if (second !== undefined)
+                    return addg(first + second);
+                return first + "<br>";
+            };
+        };
+        document.write(addg()); // undefined
+        document.write(addg(2)()); // 2
+        document.write(addg(2)(7)()); // 9
+        document.write(addg(3)(0)(4)()); // 7
+        document.write(addg(1)(2)(4)(8)()); // 15
+    </script>
+</body>
+
+</html>

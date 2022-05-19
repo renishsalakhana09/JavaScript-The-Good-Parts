@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-12</title>
+</head>
+
+<body>
+    <h3>Problem 12: Write a function twice that takes a binary function and returns a unary function that passes its argument to the binary function twice. </h3>
+    <script>
+        function twice(binary) {
+            return function(x) {
+                return binary(x, x);
+            };
+        };
+
+        function add(x, x) {
+            return x + x + "<br>";
+        };
+
+        function mul(x, x) {
+            return x * x;
+        };
+        var double = twice(add);
+        document.write(double(11));
+        var square = twice(mul);
+        document.write(square(11));
+    </script>
+</body>
+
+</html>

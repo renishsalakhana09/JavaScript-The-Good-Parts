@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-23</title>
+</head>
+
+<body>
+    <h3>Problem 23: Modify the element function so that the generator argument is optional. If a generator is not provided, then each of the elements of the array will be produced.</h3>
+    <script>
+        function fromTo(start, end) {
+            return function() {
+                if (start < end) {
+                    start++;
+                    return start;
+                }
+                return undefined;
+            };
+        };
+
+        function element(arr, gen) {
+            if (gen === undefined) {
+                gen = fromTo(0, arr.length);
+            }
+            return function() {
+                var index = gen();
+                if (index !== undefined) {
+                    return arr[index];
+                }
+            };
+        }
+        var ele = element([
+            'a', 'b', 'c', 'd'
+        ]);
+        document.write(ele());
+        document.write(ele());
+        document.write(ele());
+        document.write(ele());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-34</title>
+</head>
+
+<body>
+    <h3>Problem 34: Write a function m that takes a value and an optional source string and returns them in an object.
+
+    </h3>
+    <script>
+        function m(value, str) {
+            if (str === undefined) {
+                str = value.toString();
+            }
+            return {
+                "value": value,
+                "source": str,
+            };
+        }
+        JSON.stringify(m(1))
+            // {"value": 1, "source": "1"}
+        JSON.stringify(m(Math.PI, "pi"))
+    </script>
+</body>
+
+</html>

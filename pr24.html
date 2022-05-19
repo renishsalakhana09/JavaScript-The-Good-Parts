@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-24</title>
+</head>
+
+<body>
+    <h3>Problem 24: Write a collect function that takes a generator and an array and produces a function that will collect the results in the array.
+    </h3>
+    <script>
+        function collect(gen, arr) {
+            return function() {
+                var value = gen();
+                if (value !== undefined) {
+                    arr.push(value);
+                }
+                return value;
+            };
+        }
+
+        function fromTo(start, end) {
+            return function() {
+                if (start < end) {
+                    start++;
+                    return start;
+                }
+                return undefined;
+            };
+        }
+        var array = [],
+            col = collect(fromTo(0, 2), array);
+        document.write(col()); //1
+        document.write(col()); //2
+        document.write(col()); //undefined
+    </script>
+</body>
+
+</html>

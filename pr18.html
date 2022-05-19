@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-18</title>
+</head>
+
+<body>
+    <h3>Problem 18: Write a limit function that allows a binary function to be called a limited number of times.</h3>
+    <script>
+        function limit(func, lim) {
+            return function(x, y) {
+                if (lim > 0) {
+                    lim -= 1;
+                    return add(x, y);
+                }
+                return undefined;
+            };
+        };
+
+        function add(x, y) {
+            return x + y + "<br>";
+        }
+        var add_ltd = limit(add, 1);
+        document.write(add_ltd(3, 4)); //7
+        document.write(add_ltd(3, 5)); //undefined
+    </script>
+</body>
+
+</html>

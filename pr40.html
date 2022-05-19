@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-40</title>
+</head>
+
+<body>
+    <h3>
+        Problem 40: Write a function liftg that will take a binary function and apply it to many invocations.
+    </h3>
+    <script>
+        function liftg(binary) {
+            return function(second) {
+                if (second === undefined) {
+                    return second;
+                }
+                return function more(next) {
+                    if (next === undefined) {
+                        return second;
+                    }
+                    second = binary(second, next);
+                    return more;
+                };
+            };
+        }
+
+        function mul(x, y) {
+            return x * y;
+        }
+        document.write(liftg(mul)()); // undefined
+        document.write(liftg(mul)(3)()); // 3
+        document.write(liftg(mul)(3)(0)(4)()); // 0
+        document.write(liftg(mul)(1)(2)(4)(8)()); // 64
+    </script>
+</body>
+
+</html>

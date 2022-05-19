@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-27</title>
+</head>
+
+<body>
+    <h3>Problem 27: Write a repeat function that takes a generator and calls it until it returns undefined.</h3>
+    <script>
+        function repeat(gen) {
+            if (gen() !== undefined) {
+                return repeat(gen);
+            }
+        }
+
+        function fromTo(start, end) {
+            return function() {
+                if (start < end) {
+                    start++;
+                    return start;
+                }
+                return undefined;
+            };
+        };
+        var array = [];
+        repeat(collect(fromTo(0, 4), array));
+        document.write(log(array));
+    </script>
+</body>
+
+</html>

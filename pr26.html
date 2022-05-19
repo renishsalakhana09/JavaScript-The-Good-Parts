@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-26</title>
+</head>
+
+<body>
+    <h3>Problem 26: Write a concat function that takes two generators and produces a generator that combines the sequences.</h3>
+    <script>
+        function concat(f, g) {
+            return function() {
+                var value = f();
+                if (value === undefined) {
+                    value = g();
+                }
+                return value;
+            };
+        };
+
+        function fromTo(start, end) {
+            return function() {
+                if (start < end) {
+                    start++;
+                    return start;
+                }
+                return undefined;
+            };
+        };
+
+        var con = concat(fromTo(0, 3),
+            fromTo(0, 2));
+        document.write(con());
+        document.write(con());
+        document.write(con());
+        document.write(con());
+        document.write(con());
+    </script>
+</body>
+
+</html>

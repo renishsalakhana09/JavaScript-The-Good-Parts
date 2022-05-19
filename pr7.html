@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-7</title>
+</head>
+
+<body>
+    <h3>Problem 7: Write a function that takes a binary function and takes a binary function, and make it callable with two invocations.</h3>
+    <script>
+        function applyf(binary) {
+            return function(x) {
+                return function(y) {
+                    return binary(x, y);
+                }
+            }
+        };
+
+        function add(x, y) {
+            return x + y + "<br>"
+        }
+
+        function mul(x, y) {
+            return x * y;
+        }
+        addf = applyf(add);
+        addy = applyf(mul);
+        document.write("This is Addition of two indication: " + addf(3)(4));
+        document.write("This is Multiplication of two indication: " + addy(3)(4));
+    </script>
+</body>
+
+</html>

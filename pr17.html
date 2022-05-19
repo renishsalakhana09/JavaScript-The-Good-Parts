@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-17</title>
+</head>
+
+<body>
+    <h3>
+        Problem 17: Make a revocable function that takes a nice function, and returns a revoke function that denies access to the nice function, and an invoke function that can invoke the nice function until it’s revoked.
+    </h3>
+    <script>
+        function revocable(nice) {
+            return {
+                invoke: function() {
+                    return nice.apply(this, arguments);
+                },
+                revoke: function() {
+                    nice = null;
+                }
+            }
+        }
+        temp = revocable(alert);
+        document.write(temp.invoke(7));
+        document.write(temp.revoke());
+        document.write(temp.invoke(8));
+    </script>
+</body>
+
+</html>

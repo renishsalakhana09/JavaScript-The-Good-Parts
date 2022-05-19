@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-43</title>
+</head>
+
+<body>
+    <h3>Problem 43: Make a function that makes a publish/subscribe object. It will reliably deliver all publications to all subscribers in the right order.</h3>
+    <script>
+        function pubsub() {
+            var sub = [];
+            return {
+                subscribe: function(func) {
+                    if (func !== undefined) {
+                        sub.push(func);
+                    }
+                },
+                publish: function(pubStr) {
+                    for (var i = 0; i < sub.length; i++) {
+                        sub[i](pubStr);
+                    }
+                },
+            };
+        }
+        my_pubsub = pubsub();
+        document.write(my_pubsub.subscribe(log));
+        document.write(my_pubsub.publish("It works!"));
+        // log("It works!")
+    </script>
+</body>
+
+</html>

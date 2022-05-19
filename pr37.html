@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-37</title>
+</head>
+
+<body>
+    <h3>Problem 37: Modify function liftm so that the functions it produces can accept arguments that are either numbers or m objects.</h3>
+    <script>
+        function liftm(binary, str) {
+            return function(first, second) {
+                if (typeOf(first) === "number") {
+                    first = m(first);
+                }
+                if (typeOf(second) === "number") {
+                    second = m(second);
+                }
+                return m(
+                    binary(first.value, second.value),
+                    "(" + first.source + str + second.source + ")"
+                );
+            };
+        }
+        var addm = liftm(add, "+");
+        JSON.stringify(addm(3, 4))
+            // {"value": 7, "source": "(3+4)"}
+    </script>
+</body>
+
+</html>

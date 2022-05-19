@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-19</title>
+</head>
+
+<body>
+    <h3>Problem 19: Write a from function that produces a generator that will produce a series of values.</h3>
+    <script>
+        function from(x) {
+            return function() {
+                return x++ + "<br>";
+            };
+        }
+        var index = from(0);
+        document.write(index()); //0
+        document.write(index()); //1
+        document.write(index()); //2
+        document.write(index()); //3
+    </script>
+</body>
+
+</html>

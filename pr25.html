@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-25</title>
+</head>
+
+<body>
+    <h3>Problem 25: Write a filter function that takes a generator and a predicate and produces a generator that produces only the values approved by the predicate.</h3>
+    <script>
+        function filter(gen, pred) {
+            return function() {
+                var value = gen();
+                while (value !== undefined && !pred(value)) {
+                    value = gen();
+                }
+                return value;
+            };
+        };
+
+        function fromTo(start, end) {
+            return function() {
+                if (start < end) {
+                    start++;
+                    return start;
+                }
+                return undefined;
+            };
+        };
+        var fil = filter(fromTo(0, 5),
+            function third(value) {
+                return (value % 3) === 0;
+            });
+        document.write(fil());
+        document.write(fil());
+        document.write(fil());
+    </script>
+</body>
+
+</html>

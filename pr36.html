@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-36</title>
+</head>
+
+<body>
+    <h3>Problem 36: Write a function liftm that takes a binary function and a string and returns a function that acts on m objects.</h3>
+    <script>
+        function liftm(binary, str) {
+            return function(first, second) {
+                return m(
+                    binary(first.value, second.value),
+                    "(" + first.source + str + second.source + ")"
+                );
+            };
+        }
+
+        var addm = liftm(add, "+");
+        JSON.stringify(addm(m(3), m(4)));
+        // {"value": 7, "source": "(3+4)"}
+        JSON.stringify(liftm(mul, "*")(m(3), m(4)));
+        // {"value": 12, "source": "(3*4)"}
+    </script>
+</body>
+
+</html>

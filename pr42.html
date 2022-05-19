@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-42</title>
+</head>
+
+<body>
+    <h3>Problem 42: Make an array wrapper object with methods get, store, and append, such that an attacker cannot get access to the private array.
+    </h3>
+    <script>
+        function vector() {
+            var arr = [];
+            return {
+                append: function(num) {
+                    arr.push(num);
+                },
+                store: function(index, num) {
+                    arr[1] = num;
+                },
+                get: function(index) {
+                    return arr[index];
+                },
+            };
+        }
+        document.write(myvector = vector());
+        document.write(myvector.append(7));
+        document.write(myvector.store(1, 8));
+        document.write(myvector.get(0)); // 7
+        document.write(myvector.get(1)); // 8
+    </script>
+</body>
+
+</html>

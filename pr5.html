@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-5</title>
+</head>
+
+<body>
+    <h3>Problem 5: Write a function that takes an argument and returns a function that returns that argument</h3>
+    <script>
+        function identityf(n) {
+            return function() {
+                return n;
+            }
+        };
+        idf = identityf(3);
+        document.write(idf());
+    </script>
+</body>
+
+</html>

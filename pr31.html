@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-31</title>
+</head>
+
+<body>
+    <h3>Problem 31: Write a function gensymff that takes a unary function and a seed and returns a gensymf.</h3>
+    <script>
+        function gensymff(unary, seed) {
+            return function(char) {
+                var number = seed;
+                return function() {
+                    number = unary(number);
+                    return char + number;
+                };
+            };
+        };
+
+        function from(x) {
+            return function() {
+                return x++;
+            }
+        };
+
+        function gensymf(sym) {
+            var number = from(1);
+            return function() {
+                return sym + number();
+            };
+        };
+        var gensymf = gensymff(inc, 0),
+            geng = gensymf("G"),
+            genh = gensymf("H");
+        document.write(geng());
+        document.write(genh());
+        document.write(geng());
+        document.write(genh());
+        document.write(geng());
+        document.write(genh());
+    </script>
+</body>
+
+</html>

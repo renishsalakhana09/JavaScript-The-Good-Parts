@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-21</title>
+</head>
+
+<body>
+    <h3>Problem 21: Write a fromTo function that produces a generator that will produce values in a range.</h3>
+    <script>
+        function fromTo(start, end) {
+            return function() {
+                if (start < end) {
+                    start++;
+                    return start;
+                }
+                return undefined;
+            };
+        }
+        var index = fromTo(0, 3);
+        document.write(index()); //1
+        document.write(index()); //2
+        document.write(index()); //3
+        document.write(index()); //undefined
+    </script>
+</body>
+
+</html>

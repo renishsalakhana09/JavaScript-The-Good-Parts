@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-20</title>
+</head>
+
+<body>
+    <h3>Problem 20: Write a ‘to’ function that takes a generator and an end value, and returns a generator that will produce numbers up to that limit.
+    </h3>
+    <script>
+        function to(func, end) {
+            return function() {
+                var value = func();
+                if (value < end) {
+                    return value + "<br>";
+                }
+                return undefined;
+            };
+        }
+
+        function from(x) {
+            return function() {
+                return x++;
+            }
+        }
+        var index = to(from(1), 3);
+        document.write(index()); //1
+        document.write(index()); //2
+        document.write(index()); //undefined
+    </script>
+</body>
+
+</html>

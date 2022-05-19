@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-13</title>
+</head>
+
+<body>
+    <h3>Problem 13: Write a function compseu that takes two unary functions and returns a unary function that calls both of them.</h3>
+    <script>
+        function twice(binary) {
+            return function(x) {
+                return binary(x, x);
+            }
+        }
+
+        function add(x, x) {
+            return x + x;
+        }
+
+        function mul(x, x) {
+            return x * x;
+        }
+        var double = twice(add);
+        var square = twice(mul);
+
+        function compseu(f, g) {
+            return function(x) {
+                return g(f(x));
+            }
+        }
+        document.write(compseu(double, square)(3)); //36
+    </script>
+</body>
+
+</html>

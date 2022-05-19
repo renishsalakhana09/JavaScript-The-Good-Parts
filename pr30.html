@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-30</title>
+</head>
+
+<body>
+    <h3>Problem 30: Make a function gensymf that makes a function that generates unique symbols.</h3>
+    <script>
+        function from(x) {
+            return function() {
+                return x++ + "<br>";
+            };
+        };
+
+        function gensymf(sym) {
+            var number = from(1);
+            return function() {
+                return sym + number();
+            };
+        };
+
+
+        var geng = gensymf("G"),
+            genh = gensymf("H");
+        document.write(geng());
+        document.write(genh());
+        document.write(geng());
+        document.write(genh());
+        document.write(geng());
+        document.write(genh());
+    </script>
+</body>
+
+</html>

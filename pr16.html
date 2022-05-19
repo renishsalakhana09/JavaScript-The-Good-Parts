@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-16</title>
+</head>
+
+<body>
+    <h3>Problem 16: Write a factory function that returns two functions that implement an up/down counter. </h3>
+    <script>
+        function counterf(value) {
+            return {
+                inc: function() {
+                    value += 1;
+                    return value + "<br>";
+                },
+                dec: function() {
+                    value -= 1;
+                    return value - 1;
+                }
+            }
+        }
+        counter = counterf(10);
+        document.write(counter.inc());
+        document.write(counter.dec());
+    </script>
+</body>
+
+</html>
